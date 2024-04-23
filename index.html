@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HORIZON HUB</title>
+    <script src="https://kit.fontawesome.com/e8fa2e31b4.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+            font-size: 18px;
+        }
+        body {
+            margin: 4vh;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .sidebar {
+            width: 25%;
+            border: 1px solid #eee;
+            border-radius: 3px;
+            padding: 15px;
+            height: 92vh;
+            box-shadow: 0px 0px 3px gray;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .fa-circle {
+            color: orangered;
+        }
+        .searchBar {
+            width: 100%;
+            background-color: #eee;
+            border-radius: 3px;
+            padding: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        input {
+            border: none;
+            outline: none;
+            background: none;
+        }
+        .glass:hover {
+            color: orangered;
+            cursor: pointer;
+        }
+        .social-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .fa-brands {
+            font-size: 25px;
+            margin: 0 10px;
+            color: #333;
+            cursor: pointer;
+        }
+        .fa-brands:hover {
+            color: orangered;
+        }
+        .data {
+            width: 73%;
+            border-radius: 3px;
+            height: 92vh;
+            overflow-y: auto;
+        }
+        .top {
+            height: 60px;
+            border-radius: 3px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+        }
+        .header {
+            height: 200px;
+            border-radius: 3px;
+            background-color: #333;
+            margin: 3vh 0px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header p {
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+        }
+        #root {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+        .box {
+            margin: 1px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .img-box {
+            width: 100%;
+            height: 176px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .images {
+            max-height: 90%;
+            max-width: 90%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .bottom {
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 110px;
+        }
+        h2 {
+            font-size: 20px;
+            color: orangered;
+        }
+        button {
+            width: 100%;
+            position: relative;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            padding: 7px 25px;
+            cursor: pointer;
+            color: white;
+        }
+        button:hover {
+            background-color: orangered;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    
+           
+           
+            <div class="header">
+                <p>HORIZON HUB</p><br>
+                
+            
+            </div>
+                
+          
+
+
+
+
+            
+            <div id="cover">
+                <form method="get" action="">
+                  <div class="tb">
+                    <div class="td"><input type="text" id="searchBar" name="searchBar" placeholder="Search The Products Here" required></div>
+                    <div class="td" id="s-cover">
+                      <button type="submit">
+                        <div id="s-circle"></div>
+                        <span></span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            
+            <div class="body">
+                <div id="root"></div>
+            </div>
+           
+        </div>
+    </div>
+    
+    <script>
+        const product = [
+            {
+                id: 0,
+                 image: 'image/gg-1.jpg',
+                title: 'Z Flip Foldable Mobile',
+                price: 120,
+                link:'www.youtube.com',
+               
+            },
+            {
+                id: 1,
+                image: 'image/hh-2.jpg',
+                title: 'Air Pods Pro',
+                price: 60,
+                link:'www.youtube.com',
+            },
+            {
+                id: 2,
+                image: 'image/ee-3.jpg',
+                title: '250D DSLR Camera',
+                price: 230,
+                link:'www.youtube.com',
+            },
+            {
+                id: 3,
+                image: 'image/aa-1.jpg',
+                title: 'Headphones',
+                price: 100,
+                link:'www.youtube.com',
+            },
+            {
+                id: 4,
+                image: 'image/bb-1.jpg',
+                title: 'Audio Microphone',
+                price: 230,
+                link:'www.youtube.com',
+            },
+            {
+                id: 5,
+                image: 'https://m.media-amazon.com/images/I/51bStYwuHzL._SL1000_.jpg',
+                title: 'Terra Dry Stone',
+                price: 100,
+                link:'https://www.amazon.in/Artment-TerraDry-Bathroom-Diatomaceous-Absorbent/dp/B0CL9TRN8D?crid=1150XGSWAV6XU&dib=eyJ2IjoiMSJ9.lHN48kRRI-NKGFRbtSZMiG56kxmlQaTz-Lb8FdXGbdjqxPI9VfSnBj4GzHMJHTWYTUytM5mn9TahZuiqcAaV0zLt6WMlZq7l_gcj0HpFQ2qcPMULKIsrxHvnxjpgDP18f17bXbkQSuU6co-tjAkdGpVXS9PP4mN8kYOZMAIEuhAzy9Yi-BPQUqTXMupxxwPd-ACAcgQx8LpnFWDfSSDqenu30mZ0yy8isDpsAXEPpAHrSEqcWgTQOIOLHZMdiE8EXr22v5JwnvzQUv0oJxEm0x1KP5iX1vMXZRdl6FTogCM.4YFTMj5NnafR9IIOq8d2rwHStUlyK3fYHf_3KEFvJR4&dib_tag=se&keywords=stone%2Bbath%2Bmat&qid=1713858779&sprefix=stone%2Bbath%2Caps%2C263&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll1&tag=kunalmahato03-21&linkId=1a4e6e0d6f6549bea924f2725ef5696c&language=en_IN&ref_=as_li_ss_tl',
+            },
+            {
+                id: 6,
+                 image: 'image/gg-1.jpg',
+                title: 'Z Flip Foldable Mobile',
+                price: 120,
+                link:'www.youtube.com',
+               
+            },
+            {
+                id: 7,
+                 image: 'image/gg-1.jpg',
+                title: 'Z Flip Foldable Mobile',
+                price: 120,
+                link:'www.youtube.com',
+               
+            },
+            {
+                id: 8,
+                 image: 'image/gg-1.jpg',
+                title: 'Z Flip Foldable Mobile',
+                price: 120,
+                link:'www.youtube.com',
+               
+            },
+            {
+                id: 9,
+                 image: 'image/gg-1.jpg',
+                title: 'Z Flip Foldable Mobile',
+                price: 120,
+                link:'www.youtube.com',
+               
+            },
+        ];
+
+        const categories = [...new Set(product.map((item) => { return item }))]
+
+        document.getElementById('searchBar').addEventListener('keyup', (e) => {
+            const searchData = e.target.value.toLowerCase();
+            const filteredData = categories.filter((item) => {
+                return (
+                    item.title.toLowerCase().includes(searchData)
+                )
+            })
+            displayItem(filteredData)
+        });
+
+        const displayItem = (items) => {
+            document.getElementById('root').innerHTML = items.map((item) => {
+                var { image, title, price, link } = item;
+                return (
+                    `<div class='box'>
+                        <div class='img-box'>
+                            <img class='images' src=${image}></img>
+                        </div> 
+                        <div class='bottom'>
+                            <p>${title}</p>
+                            
+                            <a href=${link}>
+            <button>CLICK HERE TO BUY</button>
+          </a>
+                        </div>
+                    </div>`
+                )
+            }).join('')
+        };
+        displayItem(categories);
+
+    </script>
+</body>
+
+</html>
